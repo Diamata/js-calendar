@@ -169,7 +169,7 @@ button {
     padding: 4px;
     background-color: var(--contrast);
     box-shadow: inset rgba(1, 1, 1, .2) 0 0 5px 3px;
-    color: var(--main);
+    color: var(--elements);
     border-radius: 10px;
     max-height: 55px;
     overflow: hidden;
@@ -177,7 +177,7 @@ button {
 
 .padding {
     cursor: default !important;
-    background-color: var(--main2) !important;
+    background-color: var(--contrast) !important;
     box-shadow: none !important;
 }
 
