@@ -1,0 +1,247 @@
+:root {
+    --elements: #54BAB9;
+    --contrast: #ff8bb5;
+}
+
+* {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background: url('bg.jpg') center center/cover no-repeat;
+    min-height: 100vh;
+    position: relative;
+    margin: 5px;
+}
+
+body,html {
+    height: 100vh;
+}
+
+.wrapper {
+    min-height: calc(100vh - 26px);
+    width: calc(100vw - 26px);
+    border-radius: 20px;
+    background: rgba(1, 1, 1, 0.8);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    padding-bottom: 20px;
+}
+
+.calendar-app {
+    display: flex;
+    position: relative;
+    padding-top: 65px;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Pacifico', sans-serif;
+    font-size: 50px;
+    color: var(--elements);
+    padding: 24px 0 24px 24px;
+    margin: 0;
+    line-height: 50px;
+    text-shadow: -2px 2px 5px rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+button {
+    width: 75px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+
+#header {
+    padding-bottom: 10px;
+    color: var(--contrast);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.swipe-btns {
+    display: flex;
+    width: 170px;
+    justify-content: space-between;
+}
+
+#header button {
+    background-color: var(--contrast);
+    color: white;
+    box-shadow:
+            inset rgba(255, 255, 255, 0.1) 0 0 5px 2px,
+            rgba(255, 255, 255, 0.1) 0 0 6px 3px;
+    transition: .4s all;
+}
+
+#header button:hover {
+    transform: scale(1.08);
+    transition: .4s all;
+}
+
+#container {
+    width: 770px;
+    margin-top: 10px;
+}
+
+#weekdays {
+    width: 100%;
+    display: flex;
+    color: white;
+}
+
+#weekdays div {
+    width: 100px;
+    margin: 15px;
+    font-size: 18px;
+    text-align: center;
+    cursor: default;
+    text-shadow: rgba(11, 237, 214, .3) 3px 2px 2px;
+}
+
+#weekdays div:hover {
+    text-shadow: var(--elements) 0 0 10px,
+                 rgba(255, 255, 255, .5) 3px 2px 3px;
+}
+
+#calendar {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.day {
+    width: 100px;
+    padding: 10px;
+    height: 100px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: var(--elements);
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow:
+            inset rgba(255, 255, 255, 0.1) 0 0 5px 2px,
+            rgba(255, 255, 255, 0.125) 0 0 6px 3px;
+    border-radius: 20px;
+    transition: .4s all;
+    color: white;
+    font-size: 30px;
+    text-shadow: rgba(1, 1, 1, .5) 3px 2px 3px;
+}
+
+.day:hover {
+    background-color: var(--elements);
+    transition: .4s all;
+}
+
+.day + #currentDay {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: var(--elements);
+    text-shadow: rgba(1, 1, 1, .5) 3px 2px 3px;
+}
+
+.day + #currentDay:hover {
+    transform: scale(1.08);
+    transition: .4s all;
+}
+
+.event {
+    font-size: 14px;
+    padding: 4px;
+    background-color: var(--contrast);
+    box-shadow: inset rgba(1, 1, 1, .2) 0 0 5px 3px;
+    color: var(--main);
+    border-radius: 10px;
+    max-height: 55px;
+    overflow: hidden;
+}
+
+.padding {
+    cursor: default !important;
+    background-color: var(--main2) !important;
+    box-shadow: none !important;
+}
+
+#monthDisplay {
+    font-size: 24px;
+}
+
+#newEventModal, #deleteEventModal {
+    display: none;
+    z-index: 20;
+    padding: 25px;
+    background-color: rgba(1, 1, 1, 0.6);
+    color: var(--contrast);
+    box-shadow: 0 0 13px rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    width: 350px;
+    top: 100px;
+    left: calc(50% - 175px);
+    position: absolute;
+    backdrop-filter: blur(10px);
+}
+
+#newEventModal h2, #deleteEventModal h2 {
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+#eventTitleInput {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 3px gray;
+}
+
+#eventTitleInput.error {
+    border: 2px solid orangered;
+    box-shadow: orangered 0 0 10px;
+}
+
+#cancelButton, #deleteButton {
+    background-color: var(--contrast);
+}
+
+#saveButton, #closeButton {
+    background-color: var(--elements);
+}
+
+#eventText {
+    font-size: 16px;
+    color: var(--elements);
+}
+
+#modalBackDrop {
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    border-radius: 20px;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+}
